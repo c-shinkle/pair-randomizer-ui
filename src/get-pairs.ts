@@ -1,13 +1,13 @@
 import { Engineer } from "./App";
 
 export const getPairs = (allEngineers: Engineer[]): string[] => {
-  const ownerSet = allEngineers.filter((engineer) => engineer.ownsStory);
+  const owners = allEngineers.filter((engineer) => engineer.ownsStory);
 
   const freeEngineers = allEngineers.filter(
     (engineer) => !engineer.isGone && !engineer.ownsStory
   );
 
-  const pairs = ownerSet.map(
+  const pairs = owners.map(
     (owner) => `${owner.name} + ${sampleNoReplace(freeEngineers).name}`
   );
 

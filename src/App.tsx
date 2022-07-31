@@ -1,5 +1,4 @@
 import "./App.css";
-import { EngineerInput } from "./EngineerInput";
 import { useState } from "react";
 import { getPairs } from "./get-pairs";
 
@@ -76,17 +75,21 @@ export function App() {
             <tr key={name}>
               <td>{name}</td>
               <td>
-                <EngineerInput
-                  index={index}
+                <input
+                  type={"checkbox"}
                   checked={engineers[index].isGone}
-                  onChange={updateIsGoneAtIndex}
+                  onChange={() => {
+                    updateIsGoneAtIndex(index);
+                  }}
                 />
               </td>
               <td>
-                <EngineerInput
-                  index={index}
+                <input
+                  type={"checkbox"}
                   checked={engineers[index].ownsStory}
-                  onChange={updateOwnsStoryAtIndex}
+                  onChange={() => {
+                    updateOwnsStoryAtIndex(index);
+                  }}
                 />
               </td>
             </tr>
