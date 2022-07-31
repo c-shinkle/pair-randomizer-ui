@@ -1,6 +1,6 @@
 import "./App.css";
 import { EngineerInput } from "./EngineerInput";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { getPairs } from "./get-pairs";
 
 export interface Engineer {
@@ -56,47 +56,44 @@ export function App() {
     });
   };
 
-  const handlerSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleClick = () => {
     setPairs(getPairs(engineers));
   };
 
   return (
     <div className="App">
       <h1>Pair Randomizer</h1>
-      <form onSubmit={handlerSubmit}>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Gone?</th>
-              <th>Story Owner?</th>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Gone?</th>
+            <th>Story Owner?</th>
+          </tr>
+        </thead>
+        <tbody>
+          {names.map((name, index) => (
+            <tr key={name}>
+              <td>{name}</td>
+              <td>
+                <EngineerInput
+                  index={index}
+                  checked={engineers[index].isGone}
+                  onChange={updateIsGoneAtIndex}
+                />
+              </td>
+              <td>
+                <EngineerInput
+                  index={index}
+                  checked={engineers[index].ownsStory}
+                  onChange={updateOwnsStoryAtIndex}
+                />
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {names.map((name, index) => (
-              <tr key={name}>
-                <td>{name}</td>
-                <td>
-                  <EngineerInput
-                    index={index}
-                    checked={engineers[index].isGone}
-                    onChange={updateIsGoneAtIndex}
-                  />
-                </td>
-                <td>
-                  <EngineerInput
-                    index={index}
-                    checked={engineers[index].ownsStory}
-                    onChange={updateOwnsStoryAtIndex}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <button type={"submit"}>Big Submit Button</button>
-      </form>
+          ))}
+        </tbody>
+      </table>
+      <button onClick={handleClick}>Big Submit Button</button>
       <div>
         {pairs.map((pair) => (
           <p key={pair}>{pair}</p>
