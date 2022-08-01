@@ -32,26 +32,24 @@ export function App() {
   const [pairs, setPairs] = useState([] as string[]);
 
   const updateIsGoneAtIndex = (index: number) => {
-    setEngineers((previousEngineers): Engineer[] => {
-      const engineerToChange = previousEngineers[index];
-      return Object.assign([], previousEngineers, {
-        [index]: {
-          ...engineerToChange,
-          isGone: !engineerToChange.isGone,
-        },
+    setEngineers((prev): Engineer[] => {
+      const next = [...prev];
+      next.splice(index, 1, {
+        ...prev[index],
+        isGone: !prev[index].isGone,
       });
+      return next;
     });
   };
 
   const updateOwnsStoryAtIndex = (index: number) => {
-    setEngineers((previousEngineers): Engineer[] => {
-      const engineerToChange = previousEngineers[index];
-      return Object.assign([], previousEngineers, {
-        [index]: {
-          ...engineerToChange,
-          ownsStory: !engineerToChange.ownsStory,
-        },
+    setEngineers((prev): Engineer[] => {
+      const next = [...prev];
+      next.splice(index, 1, {
+        ...prev[index],
+        ownsStory: !prev[index].ownsStory,
       });
+      return next;
     });
   };
 
@@ -96,7 +94,7 @@ export function App() {
           ))}
         </tbody>
       </table>
-      <button onClick={handleClick}>Big Submit Button</button>
+      <button onClick={handleClick}>Get Random Pairs!</button>
       <div>
         {pairs.map((pair) => (
           <p key={pair}>{pair}</p>
