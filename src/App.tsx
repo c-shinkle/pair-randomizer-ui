@@ -11,7 +11,6 @@ export interface Engineer {
 const names = [
   "Christian",
   "Eric",
-  "Girish",
   "Jason",
   "Kyle",
   "Niko",
