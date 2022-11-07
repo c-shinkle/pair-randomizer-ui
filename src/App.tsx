@@ -14,7 +14,6 @@ const names = [
   "Jason",
   "Kyle",
   "Niko",
-  "Srini",
   "Tumsa",
   "Tyler",
 ];
