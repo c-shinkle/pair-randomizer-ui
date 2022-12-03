@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import { getPairs } from "./get-pairs";
 
 export interface Engineer {
@@ -8,15 +8,7 @@ export interface Engineer {
   ownsStory: boolean;
 }
 
-const names = [
-  "Christian",
-  "Eric",
-  "Jason",
-  "Kyle",
-  "Niko",
-  "Tumsa",
-  "Tyler",
-];
+const names = ["Christian", "Eric", "Jason", "Kyle", "Niko", "Tumsa", "Tyler"];
 
 const defaultEngineers = names.map((name): Engineer => {
   return {

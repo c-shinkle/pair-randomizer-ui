@@ -2,18 +2,34 @@
   "name": "pair-randomizer-ui",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "@vitejs/plugin-react": "2.2.0",
+    "vite": "3.2.4",
+    "vite-tsconfig-paths": "3.6.0"
+  },
   "dependencies": {
-    "@types/node": "^16.7.13",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.4.2",
-    "web-vitals": "^2.1.0"
+    "@types/node": "18.11.10",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.9",
+    "@typescript-eslint/eslint-plugin": "5.45.0",
+    "@typescript-eslint/parser": "5.45.0",
+    "eslint": "8.29.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
+    "eslint-plugin-react": "7.31.11",
+    "prettier": "2.8.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.9.3"
   },
   "scripts": {
-    "start": "react-scripts start"
+    "build": "tsc && vite build",
+    "compile": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "yarn prettier --write .",
+    "serve": "vite preview",
+    "start": "vite"
   },
   "eslintConfig": {
     "extends": [
