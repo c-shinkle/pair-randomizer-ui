@@ -8,7 +8,7 @@ export interface Engineer {
   ownsStory: boolean;
 }
 
-const names = ["Christian", "Eric", "Jason", "Kyle", "Niko", "Tumsa", "Tyler"];
+const names = ["Eric", "Jason", "Kyle", "Lopez", "Niko", "Shinkle", "Tumsa", "Tyler"];
 
 const defaultEngineers = names.map((name): Engineer => {
   return {
